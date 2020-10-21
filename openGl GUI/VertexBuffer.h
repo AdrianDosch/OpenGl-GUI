@@ -13,6 +13,7 @@ private:
 public:
 	VertexBuffer(float vertices[], unsigned int size, int location, int numOfDatapoints, GLenum drawType = GL_STATIC_DRAW, GLenum normalize = GL_FALSE);
 	~VertexBuffer();
+	void newData(float vertices[], unsigned int size, int location, int numOfDatapoints, GLenum drawType = GL_STATIC_DRAW, GLenum normalize = GL_FALSE);
 	void bind();
 	void unbind();
 };

@@ -16,6 +16,15 @@ VertexBuffer::~VertexBuffer()
 	glDeleteBuffers(1, &m_VertexBufferID);
 }
 
+void VertexBuffer::newData(float vertices[], unsigned int size, int location, int numOfDatapoints, GLenum drawType, GLenum normalize)
+{
+	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferID);
+	glBufferData(GL_ARRAY_BUFFER, size, (void*)vertices, drawType);
+
+	glEnableVertexAttribArray(location);
+	glVertexAttribPointer(location, numOfDatapoints, GL_FLOAT, normalize, sizeof(float) * numOfDatapoints, 0);
+}
+
 void VertexBuffer::bind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferID);
