@@ -6,6 +6,6 @@
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Window.h"
-#include "rendering.cpp"
+#include "Rendering.h"
 
 #endif

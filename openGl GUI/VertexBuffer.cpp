@@ -3,6 +3,10 @@
 
 VertexBuffer::VertexBuffer(float vertices[], unsigned int size, int location, int numOfDatapoints, GLenum drawType, GLenum normalize)
 {
+	m_vertices = vertices;
+	m_size = size;
+	m_drawType = drawType;
+
 	glGenBuffers(1, &m_VertexBufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferID);
 	glBufferData(GL_ARRAY_BUFFER, size, (void*) vertices, drawType);
@@ -28,6 +32,7 @@ void VertexBuffer::newData(float vertices[], unsigned int size, int location, in
 void VertexBuffer::bind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferID);
+	glBufferData(GL_ARRAY_BUFFER, m_size, (void*)m_vertices, m_drawType);
 }
 
 void VertexBuffer::unbind()
