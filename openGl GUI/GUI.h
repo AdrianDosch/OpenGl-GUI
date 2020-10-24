@@ -1,6 +1,7 @@
 ///Opimasation idears:
 ///-Calculating all the data required to scale and position the title text only if the window is resized or the text is replaced 
 ///	instead of every frame.
+///-only store the vertex and index data on the GPU and have no copy of it for the CPU
 
 
 #ifndef GUI_H

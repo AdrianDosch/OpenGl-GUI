@@ -18,9 +18,6 @@ GUI::GUI(Window* window, std::string title /*= ""*/, glm::vec2 position /*= glm:
 	m_ibo(m_indices, sizeof(m_indices))
 		
 {
-	/*std::cout << sizeof(m_positions) << std::endl;
-	std::cout << sizeof(m_colors) << std::endl;
-	std::cout << sizeof(m_indices) << std::endl;*/
 	m_vao.bind();
 	m_vboPosition.bind();
 	m_vboColor.bind();

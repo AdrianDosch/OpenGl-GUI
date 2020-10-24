@@ -1,6 +1,3 @@
-///posible optimasations:
-///only store the vertex and index data on the GPU and have no copy of it for the CPU
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -32,12 +29,11 @@ int main(void)
     testGUI.setPosition(glm::vec2(0.4f, 0.2f));
     testGUI.setTitle("new title");
     testGUI.setTitleColor(glm::vec3(0.1f, 0.7f, 0.2f));
+    testGUI.setColor(glm::vec4(0.1f, 0.3f, 0.4f, 1.f));
 
     while (!glfwWindowShouldClose(window.windowID)) 
     {
         //std::cout << glGetError() << std::endl;
-
-        testGUI.setColor(glm::vec4(0.1f, 0.3f, 0.4f, 1.f));
 
         /* update uniforms */
        
