@@ -12,12 +12,13 @@
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Rendering.h"
+#include "Text.h"
 
 class GUI
 {
 private:
-	std::string m_title;
-	glm::fvec4 m_titlecolor;
+	std::string m_titleText;
+	glm::fvec3 m_titlecolor;
 	glm::fvec4 m_color;
 	glm::vec2 m_position;
 	float m_width;
@@ -25,6 +26,7 @@ private:
 
 
 	unsigned int m_membercount;
+	Window* m_window;
 	Shader m_shader;
 	VertexArray m_vao;
 	VertexBuffer m_vboPosition;
@@ -36,12 +38,15 @@ private:
 	glm::mat4 m_scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
 	glm::mat4 m_mvp = m_projection * m_model * m_scale;
 
+	Text m_title;
+	Shader m_textShader;
+
 	float m_positions[8] =
 	{
 		0.f, 0.f,
 		m_width, 0.f,
 		m_width, m_hight,
-		0.f, m_hight,
+		0.f, m_hight
 	};
 
 	float m_colors[16] =
@@ -58,7 +63,7 @@ private:
 	};
 
 public:
-	GUI(std::string m_title = "", glm::vec2 position = glm::vec2(0.5f, 0.5f), glm::vec4 color = glm::vec4(0.9f, 0.4f, 0.3f, 1.f), float width = 0.5f, float hight = 0.1);
+	GUI(Window* window, std::string m_title = "", glm::vec2 position = glm::vec2(0.5f, 0.5f), glm::vec4 color = glm::vec4(0.9f, 0.4f, 0.3f, 1.f), float width = 0.5f, float hight = 0.1);
 	~GUI();
 
 	void draw();
@@ -68,7 +73,7 @@ public:
 	void setWidth(float width);
 	void setHight(float hight);
 	void setTitle(std::string title);
-	void setTitleColor(glm::fvec4 color);
+	void setTitleColor(glm::fvec3 color);
 };
 
 #endif

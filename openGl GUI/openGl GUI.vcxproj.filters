@@ -42,6 +42,9 @@
     <ClCompile Include="Rendering.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -68,11 +71,11 @@
     <ClInclude Include="Rendering.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basic.glsl">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="GUIShader.glsl">
       <Filter>Shaders</Filter>
     </None>
@@ -80,6 +83,10 @@
   <ItemGroup>
     <CopyFileToFolders Include="res\awesomeface.png">
       <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="Basic.glsl" />
+    <CopyFileToFolders Include="TextShader.glsl">
+      <Filter>Shaders</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
