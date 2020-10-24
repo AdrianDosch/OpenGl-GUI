@@ -38,33 +38,37 @@ GUI::~GUI()
 
 void GUI::draw()
 {
+	/**render background**/
 	m_shader.bind();
 	m_mvp = m_projection * m_model * m_scale;
 	m_shader.setUniformMat4f("u_MVP", m_mvp);
 	Renderer::draw(&m_vao, GL_POLYGON, 4);
+
+	/**render Title**/
 	m_textShader.bind();
 	glm::mat4 projection = glm::ortho(0.0f, 1.f, 0.0f, 1.f);
-	float width = (1 / (float)m_window->getWidth()) * ((float)m_title.getAdvancment(m_titleText) / 64.f);
-	float hight = (1 / (float)m_window->getHight()) * m_title.getMaxHight(m_titleText);
-	float toMiddle = m_hight / 2 - hight / 2;
+
+	float width = (1 / (float)m_window->getWidth()) * ((float)m_title.getAdvancment(m_titleText) / 64.f);	//
+	float hight = (1 / (float)m_window->getHight()) * m_title.getMaxHight(m_titleText);						//size of the Text in percent
+	float toMiddle = m_hight / 2 - hight / 2;																// offset to bottom of the Background so the text is in the middle
 	glm::mat4 scale = m_scale;
 
-	float resizeFacLenght = 0;
-	float resizeFacHight = 0;
-	if (width > m_width)
-		resizeFacLenght = width * (1.f / m_width);
-
-	if (hight > m_hight)
-		resizeFacHight = hight * (1.f / m_hight);
-
-
-	if(resizeFacLenght > resizeFacHight)
-		scale = glm::scale(glm::mat4(1.f), glm::vec3(1 / resizeFacLenght, 1.f / resizeFacLenght, 1.f));
-	else if (resizeFacLenght < resizeFacHight)
-	{
-		scale = glm::scale(glm::mat4(1.f), glm::vec3(1 / resizeFacHight, 1.f / resizeFacHight, 1.f));
-		toMiddle = 0;
-	}
+	float resizeFacLenght = 0;																				//
+	float resizeFacHight = 0;																				//
+	if (width > m_width)																					//
+		resizeFacLenght = width * (1.f / m_width);															//
+																											//
+	if (hight > m_hight)																					//
+		resizeFacHight = hight * (1.f / m_hight);															//
+																											//
+																											//
+	if(resizeFacLenght > resizeFacHight)																	//
+		scale = glm::scale(glm::mat4(1.f), glm::vec3(1 / resizeFacLenght, 1.f / resizeFacLenght, 1.f));		//
+	else if (resizeFacLenght < resizeFacHight)																//
+	{																										//
+		scale = glm::scale(glm::mat4(1.f), glm::vec3(1 / resizeFacHight, 1.f / resizeFacHight, 1.f));		//
+		toMiddle = 0;																						//
+	}																										//scaling of the title if it is larger than the background
 
 	m_mvp = m_projection * m_model * scale;
 	m_textShader.setUniformMat4f("u_MVP", m_mvp);

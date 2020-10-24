@@ -1,3 +1,8 @@
+///Opimasation idears:
+///-Calculating all the data required to scale and position the title text only if the window is resized or the text is replaced 
+///	instead of every frame.
+
+
 #ifndef GUI_H
 #define GUI_H
 
