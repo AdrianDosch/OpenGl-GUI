@@ -3,15 +3,17 @@
 ///	instead of every frame.
 ///-only store the vertex and index data on the GPU and have no copy of it for the CPU
 
-
 #ifndef GUI_H
 #define GUI_H
 
 #include <iostream>
+#include <variant>
+#include <vector>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm.hpp>
+#include <gtx/string_cast.hpp>
 
 #include "Shader.h"
 #include "VertexArray.h"
@@ -19,6 +21,11 @@
 #include "IndexBuffer.h"
 #include "Rendering.h"
 #include "Text.h"
+
+#include "CheckBox.h"
+#include "Slider.h"
+
+extern class CheckBox;
 
 class GUI
 {
@@ -30,19 +37,13 @@ private:
 	float m_width;
 	float m_hight;
 
-
+	std::vector<std::variant<CheckBox*, Slider*>> m_members;
 	unsigned int m_membercount;
 	Window* m_window;
-	Shader m_shader;
 	VertexArray m_vao;
 	VertexBuffer m_vboPosition;
 	VertexBuffer m_vboColor;
 	IndexBuffer m_ibo;
-
-	glm::mat4 m_projection = glm::ortho(0.f, 1.f, 0.f, 1.f);
-	glm::mat4 m_model = glm::translate(glm::mat4(1.f), glm::vec3(m_position.x, m_position.y, 0));
-	glm::mat4 m_scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
-	glm::mat4 m_mvp = m_projection * m_model * m_scale;
 
 	Text m_title;
 	Shader m_textShader;
@@ -69,6 +70,14 @@ private:
 	};
 
 public:
+	Renderer m_renderer;
+	Shader m_shader;
+
+	glm::mat4 m_projection = glm::ortho(0.f, 1.f, 0.f, 1.f);
+	glm::mat4 m_model = glm::translate(glm::mat4(1.f), glm::vec3(m_position.x, m_position.y, 0));
+	glm::mat4 m_scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
+	glm::mat4 m_mvp = m_projection * m_model * m_scale;
+
 	GUI(Window* window, std::string m_title = "", glm::vec2 position = glm::vec2(0.5f, 0.5f), glm::vec4 color = glm::vec4(0.9f, 0.4f, 0.3f, 1.f), float width = 0.5f, float hight = 0.1);
 	~GUI();
 
@@ -80,6 +89,13 @@ public:
 	void setHight(float hight);
 	void setTitle(std::string title);
 	void setTitleColor(glm::fvec3 color);
+	
+	void addComponent(std::variant<CheckBox*, Slider*> component);
+	unsigned int getMemerCount();
+	glm::vec2 getPosition();
+	float getHight();
+	float getWidth();
+
 };
 
 #endif

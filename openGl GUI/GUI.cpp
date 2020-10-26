@@ -11,6 +11,7 @@ GUI::GUI(Window* window, std::string title /*= ""*/, glm::vec2 position /*= glm:
 
 	m_textShader("TextShader.glsl"),
 	m_title(window),
+	m_renderer(window),
 
 	m_shader("GUIShader.glsl"),
 	m_vboPosition(m_positions, sizeof(m_positions), 0, 2),
@@ -37,39 +38,22 @@ void GUI::draw()
 {
 	/**render background**/
 	m_shader.bind();
-	m_mvp = m_projection * m_model * m_scale;
+	m_mvp = m_projection * m_model * glm::translate(glm::mat4(1.f), glm::vec3(0, -m_hight * m_membercount, 0)) * glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f + m_membercount, 1.f));
 	m_shader.setUniformMat4f("u_MVP", m_mvp);
-	Renderer::draw(&m_vao, GL_POLYGON, 4);
+	m_renderer.draw(&m_vao, GL_POLYGON, 4);
 
 	/**render Title**/
-	m_textShader.bind();
-	glm::mat4 projection = glm::ortho(0.0f, 1.f, 0.0f, 1.f);
+	m_renderer.drawText(m_titleText, m_position.x, m_position.y, m_hight, m_width, m_titlecolor);
+	
+	/**render components**/
+	for (int i = 0; i < m_members.size(); i++)					
+	{															
+		if(m_members.at(i).index() == 0)						
+			std::get<CheckBox*>(m_members.at(i))->draw(m_mvp);		
+		else if (m_members.at(i).index() == 1)					
+			std::get<Slider*>(m_members.at(i))->draw();			
+	}
 
-	float width = (1 / (float)m_window->getWidth()) * ((float)m_title.getAdvancment(m_titleText) / 64.f);	//
-	float hight = (1 / (float)m_window->getHight()) * m_title.getMaxHight(m_titleText);						//size of the Text in percent
-	float toMiddle = m_hight / 2 - hight / 2;																// offset to bottom of the Background so the text is in the middle
-	glm::mat4 scale = m_scale;
-
-	float resizeFacLenght = 0;																				//
-	float resizeFacHight = 0;																				//
-	if (width > m_width)																					//
-		resizeFacLenght = width * (1.f / m_width);															//
-																											//
-	if (hight > m_hight)																					//
-		resizeFacHight = hight * (1.f / m_hight);															//
-																											//
-																											//
-	if(resizeFacLenght > resizeFacHight)																	//
-		scale = glm::scale(glm::mat4(1.f), glm::vec3(1 / resizeFacLenght, 1.f / resizeFacLenght, 1.f));		//
-	else if (resizeFacLenght < resizeFacHight)																//
-	{																										//
-		scale = glm::scale(glm::mat4(1.f), glm::vec3(1 / resizeFacHight, 1.f / resizeFacHight, 1.f));		//
-		toMiddle = 0;																						//
-	}																										//scaling of the title if it is larger than the background
-
-	m_mvp = m_projection * m_model * scale;
-	m_textShader.setUniformMat4f("u_MVP", m_mvp);
-	m_title.RenderText(m_textShader, m_titleText, 0.f, toMiddle, 1.f / m_window->getWidth(), 1.f / m_window->getHight(), m_titlecolor);
 }
 
 void GUI::setColor(glm::fvec4 color)
@@ -89,6 +73,7 @@ void GUI::setColor(glm::fvec4 color)
 
 void GUI::setPosition(glm::fvec2 position)
 {
+	m_position = position;
 	m_model = glm::translate(glm::mat4(1.f), glm::vec3(position.x, position.y, 0));
 }
 
@@ -132,4 +117,30 @@ void GUI::setTitle(std::string title)
 void GUI::setTitleColor(glm::fvec3 color)
 {
 	m_titlecolor = color;
+}
+
+void GUI::addComponent(std::variant<CheckBox*, Slider*> component)
+{
+	m_membercount++;
+	m_members.push_back(component);
+}
+
+unsigned int GUI::getMemerCount()
+{
+	return m_membercount;
+}
+
+glm::vec2 GUI::getPosition()
+{
+	return m_position;
+}
+
+float GUI::getHight()
+{
+	return m_hight;
+}
+
+float GUI::getWidth()
+{
+	return m_width;
 }
