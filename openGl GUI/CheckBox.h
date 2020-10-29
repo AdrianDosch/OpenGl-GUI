@@ -2,6 +2,7 @@
 #define CHECKBOX_H
 
 #include <iostream>
+#include <string>
 
 #include <glm.hpp>
 
@@ -56,8 +57,8 @@ public:
 	CheckBox(GUI* gui, bool* var, std::string text = "", glm::vec3 textColor = glm::vec3(1.f, 1.f, 1.f));
 	~CheckBox();
 
-	void draw(glm::mat4 mvp);
-	void onClick();
+	void draw();
+	void onClick(float xPos, float yPos);
 };
 
 #endif

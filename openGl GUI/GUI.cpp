@@ -49,11 +49,45 @@ void GUI::draw()
 	for (int i = 0; i < m_members.size(); i++)					
 	{															
 		if(m_members.at(i).index() == 0)						
-			std::get<CheckBox*>(m_members.at(i))->draw(m_mvp);		
+			std::get<CheckBox*>(m_members.at(i))->draw();		
 		else if (m_members.at(i).index() == 1)					
 			std::get<Slider*>(m_members.at(i))->draw();			
 	}
 
+}
+
+void GUI::updateInput()
+{
+	if (glfwGetMouseButton(m_window->windowID, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+	{
+		double xPos, yPos = 0;
+		glfwGetCursorPos(m_window->windowID, &xPos, &yPos);
+
+		for (int i = 0; i < m_members.size(); i++)
+		{
+			if (m_members.at(i).index() == 0 && m_holdLeftMouse == false)
+				std::get<CheckBox*>(m_members.at(i))->onClick(xPos, yPos);
+			else if (m_members.at(i).index() == 1)
+				std::get<Slider*>(m_members.at(i))->onClick(xPos, yPos);
+		}
+		onClick(xPos, yPos);
+		m_holdLeftMouse = true;
+	}
+	else
+		m_holdLeftMouse = false;
+}
+
+void GUI::onClick(float xPos, float yPos)
+{
+	xPos = xPos / m_window->getWidth();
+	yPos = yPos / m_window->getHight();
+	yPos = 1 - yPos;
+
+	if (xPos - getPosition().x > 0 && xPos - getPosition().x < getWidth() &&
+		yPos - getPosition().y  > 0 && yPos - getPosition().y < getHight())
+	{
+		setPosition(glm::vec2(xPos - getWidth() / 2, yPos -getHight() / 2));
+	}
 }
 
 void GUI::setColor(glm::fvec4 color)

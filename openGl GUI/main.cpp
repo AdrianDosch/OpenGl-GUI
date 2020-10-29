@@ -25,16 +25,19 @@ int main(void)
 
     GUI testGUI(&window, "test");
     testGUI.setHight(0.1f);
-    testGUI.setWidth(0.3);
-    testGUI.setPosition(glm::vec2(0.2f, 0.8f));
+    testGUI.setWidth(0.6);
+    testGUI.setPosition(glm::vec2(0.3f, 0.4f));
     testGUI.setTitle("new title");
     testGUI.setTitleColor(glm::vec3(0.1f, 0.7f, 0.2f));
     testGUI.setColor(glm::vec4(0.1f, 0.3f, 0.4f, 1.f));
 
-    bool testBool = true;
+    bool testBool = false;
     bool testBool2 = true;
     CheckBox box(&testGUI, &testBool, "test Box");
-    CheckBox box2(&testGUI, &testBool2, "second checkBox", glm::vec3(0.5f, 0.5f, 0.5f));
+    CheckBox box2(&testGUI, &testBool2, "checkBox", glm::vec3(0.5f, 0.5f, 0.5f));
+
+    float testFloat = 1.5f;
+    Slider slider(&testGUI, &testFloat, 1.f, 2.f, "slider");
 
     Renderer renderer(&window);
     
@@ -43,11 +46,8 @@ int main(void)
         //std::cout << glGetError() << std::endl;
 
         /* update uniforms */
-        if (glfwGetKey(window.windowID, 'C') == GLFW_PRESS)
-        {
-            box.onClick();
-            std::cout << "click" << std::endl;
-        }
+        testGUI.updateInput();
+        //std::cout << testFloat << std::endl;
 
         /* Render here */
         renderer.clear();

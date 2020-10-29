@@ -26,6 +26,7 @@
 #include "Slider.h"
 
 extern class CheckBox;
+extern class Slider;
 
 class GUI
 {
@@ -39,7 +40,6 @@ private:
 
 	std::vector<std::variant<CheckBox*, Slider*>> m_members;
 	unsigned int m_membercount;
-	Window* m_window;
 	VertexArray m_vao;
 	VertexBuffer m_vboPosition;
 	VertexBuffer m_vboColor;
@@ -47,6 +47,8 @@ private:
 
 	Text m_title;
 	Shader m_textShader;
+
+	bool m_holdLeftMouse = false;
 
 	float m_positions[8] =
 	{
@@ -69,7 +71,11 @@ private:
 		0, 1, 2, 3
 	};
 
+	void onClick(float xPos, float yPos);
+
 public:
+	Window* m_window;
+
 	Renderer m_renderer;
 	Shader m_shader;
 
@@ -82,6 +88,7 @@ public:
 	~GUI();
 
 	void draw();
+	void updateInput();
 
 	void setColor(glm::fvec4 color);
 	void setPosition(glm::fvec2 position);
