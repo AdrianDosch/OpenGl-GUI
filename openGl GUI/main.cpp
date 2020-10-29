@@ -23,21 +23,16 @@ int main(void)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    GUI testGUI(&window, "test");
-    testGUI.setHight(0.1f);
-    testGUI.setWidth(0.6);
-    testGUI.setPosition(glm::vec2(0.3f, 0.4f));
-    testGUI.setTitle("new title");
-    testGUI.setTitleColor(glm::vec3(0.1f, 0.7f, 0.2f));
-    testGUI.setColor(glm::vec4(0.1f, 0.3f, 0.4f, 1.f));
+    GUI gui(&window, "example");
+    gui.setTitleColor(glm::vec3(0.1f, 0.7f, 0.1f));
 
-    bool testBool = false;
-    bool testBool2 = true;
-    CheckBox box(&testGUI, &testBool, "test Box");
-    CheckBox box2(&testGUI, &testBool2, "checkBox", glm::vec3(0.5f, 0.5f, 0.5f));
+    bool Bool1 = false;
+    bool Bool2 = true;
+    CheckBox box(&gui, &Bool1, "bool 1");
+    CheckBox box2(&gui, &Bool2, "bool 2");
 
-    float testFloat = 1.5f;
-    Slider slider(&testGUI, &testFloat, 1.f, 2.f, "slider");
+    float testFloat = 1.f;
+    Slider slider(&gui, &testFloat, 0.f, 2.f, "slider");
 
     Renderer renderer(&window);
     
@@ -46,13 +41,13 @@ int main(void)
         //std::cout << glGetError() << std::endl;
 
         /* update uniforms */
-        testGUI.updateInput();
+        gui.updateInput();
         //std::cout << testFloat << std::endl;
 
         /* Render here */
         renderer.clear();
 
-        testGUI.draw();
+        gui.draw();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window.windowID);
