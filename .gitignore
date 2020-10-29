@@ -19,13 +19,13 @@
 [Rr]elease/
 [Rr]eleases/
 #x64/
-#x86/
-#[Aa][Rr][Mm]/
+x86/
+[Aa][Rr][Mm]/
 #[Aa][Rr][Mm]64/
-#bld/
-#[Bb]in/
-#[Oo]bj/
-#[Ll]og/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
