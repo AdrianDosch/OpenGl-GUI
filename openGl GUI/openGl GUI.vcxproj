@@ -200,7 +200,7 @@
     <ClInclude Include="GUI\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="Basic.glsl">
+    <CopyFileToFolders Include="Sqare.glsl">
       <FileType>Document</FileType>
     </CopyFileToFolders>
   </ItemGroup>

@@ -47,7 +47,7 @@ int main(void)
         0, 1, 2, 3
     };
 
-    Shader shader("Basic.glsl");
+    Shader shader("Sqare.glsl");
     VertexArray vao;
     VertexBuffer vbo(positions, sizeof(positions), 0, 2);
     IndexBuffer ibo(indices, sizeof(indices));

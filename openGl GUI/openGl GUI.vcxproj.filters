@@ -91,7 +91,7 @@
     <CopyFileToFolders Include="GUI\Shaders\TextShader.glsl">
       <Filter>Shaders</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="Basic.glsl">
+    <CopyFileToFolders Include="Sqare.glsl">
       <Filter>Shaders</Filter>
     </CopyFileToFolders>
   </ItemGroup>

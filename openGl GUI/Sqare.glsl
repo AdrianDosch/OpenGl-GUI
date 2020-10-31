@@ -21,5 +21,5 @@ in vec4 t_color;
 
 void main()
 {
-	color = vec4(1.f, 1.f, 1.f, 1.f);
+	color = vec4(0.4f, 0.9f, 0.5f, 1.f);
 };
