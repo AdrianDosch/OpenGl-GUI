@@ -7,10 +7,11 @@
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
+Window window("Gui test", 800, 600);
+
 int main(void)
 {
     /**init openGl and create window**/
-    Window window("Gui test", 800, 600);
     window.setOpenGlVersion(4, 4, GLFW_OPENGL_CORE_PROFILE);
 
     glfwSetFramebufferSizeCallback(window.windowID, framebuffer_size_callback);
@@ -30,6 +31,7 @@ int main(void)
     float yPos = 0.f;
     Slider slider1(&gui, &xPos, 0.f, 1.f, "xPos:");
     Slider slider2(&gui, &yPos, 0.f, 1.f, "yPos:");
+
 
     /**creation of the example square**/
     Renderer renderer(&window);
@@ -60,6 +62,7 @@ int main(void)
     glm::mat4 scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
     glm::mat4 mvp = projection * model * scale;
     
+    /**program loop**/
     while (!glfwWindowShouldClose(window.windowID)) 
     {
         /* update input */
@@ -94,4 +97,5 @@ int main(void)
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
+    ::window.setSize(width, height);
 }
