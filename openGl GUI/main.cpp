@@ -1,15 +1,9 @@
+#include <iostream>
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include <iostream>
-
-#include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
-#include <gtc/type_ptr.hpp>
-
-#include "Basic.h"
-#include "GUI.h"
-#include "Text.h"
+#include "GUI/GUI.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 

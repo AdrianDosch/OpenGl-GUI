@@ -2,7 +2,7 @@
 
 Renderer::Renderer(Window* window):
 	m_window(window),
-	m_textShader("TextShader.glsl"),
+	m_textShader("GUI/Shaders/TextShader.glsl"),
 	m_textObj(window)
 {
 

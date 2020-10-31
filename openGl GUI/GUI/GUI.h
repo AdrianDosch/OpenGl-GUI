@@ -46,7 +46,6 @@ private:
 	IndexBuffer m_ibo;
 
 	Text m_title;
-	Shader m_textShader;
 
 	bool m_holdLeftMouse = false;
 

@@ -2,7 +2,7 @@
 
 Text::Text(Window* window)
 {
-    Shader textShader("textShader.glsl");
+    Shader textShader("GUI/Shaders/textShader.glsl");
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(window->getWidth()), 0.0f, static_cast<float>(window->getHight()));
     textShader.setUniformMat4f("projection", projection);
 
@@ -16,7 +16,7 @@ Text::Text(Window* window)
     }
 
     FT_Face face;
-    if (FT_New_Face(ft, "fonts/arial.ttf", 0, &face)) {
+    if (FT_New_Face(ft, "GUI/fonts/arial.ttf", 0, &face)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
     else {

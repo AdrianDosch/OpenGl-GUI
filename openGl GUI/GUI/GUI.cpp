@@ -9,11 +9,10 @@ GUI::GUI(Window* window, std::string title /*= ""*/, glm::vec2 position /*= glm:
 	m_membercount(0),
 	m_window(window),
 
-	m_textShader("TextShader.glsl"),
 	m_title(window),
 	m_renderer(window),
 
-	m_shader("GUIShader.glsl"),
+	m_shader("GUI/Shaders/GUIShader.glsl"),
 	m_vboPosition(m_positions, sizeof(m_positions), 0, 2),
 	m_vboColor(m_colors, sizeof(m_colors), 1, 4),
 	m_ibo(m_indices, sizeof(m_indices))
