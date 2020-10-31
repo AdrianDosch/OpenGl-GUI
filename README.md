@@ -10,7 +10,7 @@ current features:
 
 
 external libarys I use:
-GLM
-GLEW
-GLFW
-Freetype
+- GLM
+- GLEW
+- GLFW
+- Freetype
