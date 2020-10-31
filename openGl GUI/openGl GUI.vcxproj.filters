@@ -16,6 +16,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{6628cdab-13fb-4636-b749-9a590f989b4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{ec051d2d-c594-4349-9fd2-0c419886b15f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -88,18 +91,24 @@
     <CopyFileToFolders Include="GUI\Shaders\TextShader.glsl">
       <Filter>Shaders</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="Basic.glsl" />
+    <CopyFileToFolders Include="Basic.glsl">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI\Shaders\GUIShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Dependencies\dlls\win32\freetype.dll" />
+    <None Include="Dependencies\dlls\win32\freetype.dll">
+      <Filter>Dependencies</Filter>
+    </None>
+    <None Include="Dependencies\dlls\x64\freetype.dll">
+      <Filter>Dependencies</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="GUI\fonts\arial.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="Dependencies\dlls\x64\freetype.dll" />
+    <Font Include="GUI\fonts\arial.ttf">
+      <Filter>Dependencies</Filter>
+    </Font>
   </ItemGroup>
 </Project>
