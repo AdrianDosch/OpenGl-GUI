@@ -7,3 +7,10 @@ current features:
 - nameing all the controls
 - changeing the color and dimentions of the GUI-window
 - changeing the position of the GUI-window useing the mouse
+
+
+external libarys I use:
+GLM
+GLEW
+GLFW
+Freetype
