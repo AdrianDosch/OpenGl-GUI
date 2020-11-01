@@ -11,7 +11,7 @@ Window window("Gui test", 800, 600);
 
 int main(void)
 {
-    /**init openGl and create window**/
+    /**setup OpenGl**/
     window.setOpenGlVersion(4, 4, GLFW_OPENGL_CORE_PROFILE);
 
     glfwSetFramebufferSizeCallback(window.windowID, framebuffer_size_callback);
@@ -29,9 +29,8 @@ int main(void)
 
     float xPos = 0.f;
     float yPos = 0.f;
-    Slider slider1(&gui, &xPos, 0.f, 1.f, "xPos:");
+    Slider slider1(&gui, &xPos, 0.f, 1.f, "xPos: ");
     Slider slider2(&gui, &yPos, 0.f, 1.f, "yPos:");
-
 
     /**creation of the example square**/
     Renderer renderer(&window);
@@ -67,7 +66,8 @@ int main(void)
     {
         /* update input */
         gui.updateInput();
-
+        slider1.setText("xPos: " + std::to_string(xPos));
+        slider2.setText("yPos: " + std::to_string(yPos));
         /* Rendering */
         //example sqare
         renderer.clear();

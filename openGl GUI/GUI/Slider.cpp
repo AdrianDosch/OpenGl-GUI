@@ -66,7 +66,7 @@ Slider::~Slider()
 
 void Slider::draw()
 {
-	m_gui->m_renderer.drawText(m_text, m_gui->getPosition().x, m_gui->getPosition().y - m_position * m_gui->getHight(), m_gui->getHight(), m_gui->getWidth() * (17.f / 20.f), m_textColor);
+	m_gui->m_renderer.drawText(m_text, m_gui->getPosition().x, m_gui->getPosition().y - m_position * m_gui->getHight(), m_gui->getHight(), m_gui->getWidth() * (9.5f / 20.f), m_textColor);
 	m_gui->m_shader.bind();
 
 	glm::mat4 model = glm::translate(glm::mat4(1.f), glm::vec3(m_gui->getPosition().x, m_gui->getPosition().y - (m_gui->getHight() * m_position), 0));
@@ -121,4 +121,9 @@ void Slider::onClick(float xPos, float yPos)
 		m_vboPositionSlider.newData(m_positionsSlider, sizeof(m_positionsSlider), 0, 2);
 		m_vaoSlider.unbind();
 	}
+}
+
+void Slider::setText(std::string text)
+{
+	m_text = text;
 }
