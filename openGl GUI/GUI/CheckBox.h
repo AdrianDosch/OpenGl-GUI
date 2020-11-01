@@ -59,6 +59,7 @@ public:
 
 	void draw();
 	void onClick(float xPos, float yPos);
+	void setText(std::string text);
 };
 
 #endif

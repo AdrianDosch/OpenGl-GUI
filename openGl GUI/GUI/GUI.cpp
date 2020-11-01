@@ -69,7 +69,8 @@ void GUI::updateInput()
 			else if (m_members.at(i).index() == 1)
 				std::get<Slider*>(m_members.at(i))->onClick(xPos, yPos);
 		}
-		onClick(xPos, yPos);
+		if(!m_fixPosition)
+			onClick(xPos, yPos);
 		m_holdLeftMouse = true;
 	}
 	else
@@ -156,6 +157,11 @@ void GUI::addComponent(std::variant<CheckBox*, Slider*> component)
 {
 	m_membercount++;
 	m_members.push_back(component);
+}
+
+void GUI::FixPosition(bool state)
+{
+	m_fixPosition = state;
 }
 
 unsigned int GUI::getMemerCount()

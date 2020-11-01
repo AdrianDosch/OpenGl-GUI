@@ -37,6 +37,7 @@ private:
 	glm::vec2 m_position;
 	float m_width;
 	float m_hight;
+	bool m_fixPosition = false;
 
 	std::vector<std::variant<CheckBox*, Slider*>> m_members;
 	unsigned int m_membercount;
@@ -95,6 +96,7 @@ public:
 	void setHight(float hight);
 	void setTitle(std::string title);
 	void setTitleColor(glm::fvec3 color);
+	void FixPosition(bool state);
 	
 	void addComponent(std::variant<CheckBox*, Slider*> component);
 	unsigned int getMemerCount();

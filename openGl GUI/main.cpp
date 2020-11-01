@@ -29,8 +29,8 @@ int main(void)
 
     float xPos = 0.f;
     float yPos = 0.f;
-    Slider slider1(&gui, &xPos, 0.f, 1.f, "xPos: ");
-    Slider slider2(&gui, &yPos, 0.f, 1.f, "yPos:");
+    Slider slider1(&gui, &xPos, 0.f, 1.f);
+    Slider slider2(&gui, &yPos, 0.f, 1.f);
 
     /**creation of the example square**/
     Renderer renderer(&window);

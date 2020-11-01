@@ -76,3 +76,8 @@ void CheckBox::onClick(float xPos, float yPos)
 		m_vao.unbind();
 	}
 }
+
+void CheckBox::setText(std::string text)
+{
+	m_text = text;
+}
