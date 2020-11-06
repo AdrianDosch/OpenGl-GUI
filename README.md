@@ -1,5 +1,5 @@
 # OpenGl-GUI
-A project where I try to create a GUI with OpenGl to use it in other OpenGl projects.
+This libary can be used to display and change variables useing the mouse.
 
 current features:
 - creating a checkbox to control a bool
