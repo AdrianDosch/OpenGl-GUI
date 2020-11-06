@@ -14,3 +14,9 @@ external libarys I use:
 - GLEW
 - GLFW
 - Freetype
+
+How to use this libary:
+1. Setup
+- copy the folder "GUI" which you can find under "OpenGl-GUI/openGl GUI" and paste it into the folder which contains the project file of your OpenGL program:
+- link to all .lib files of the external libarys mentioned:
+  
