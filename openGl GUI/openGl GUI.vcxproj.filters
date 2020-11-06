@@ -86,23 +86,24 @@
     <ClInclude Include="GUI\VertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="GUI\Shaders\TextShader.glsl">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="Sqare.glsl">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
+    <ClInclude Include="GUI\Includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI\Shaders\GUIShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Dependencies\dlls\win32\freetype.dll">
+    <None Include="Cicle.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="GUI\Shaders\TextShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="GUI\Dependencies\dlls\win32\freetype.dll">
       <Filter>Dependencies</Filter>
     </None>
-    <None Include="Dependencies\dlls\x64\freetype.dll">
+    <None Include="GUI\Dependencies\dlls\x64\freetype.dll">
       <Filter>Dependencies</Filter>
     </None>
   </ItemGroup>

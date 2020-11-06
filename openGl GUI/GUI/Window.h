@@ -1,17 +1,17 @@
-#pragma once
-
 #ifndef WINDOW_H
 #define WINDOW_H
+
+#include "Includes.h"
 
 #include <string>
 #include <iostream>
 
 #ifndef GLEW_STATIC
 #define GLEW_STATIC
-#include <GL/glew.h>
+#include GLEW
 #endif
 
-#include <GLFW/glfw3.h>
+#include GLFW3
 
 class Window
 {

@@ -1,13 +1,15 @@
+#include "GUI\Includes.h"
+
 #include <iostream>
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include GLEW
+#include GLFW3
 
 #include "GUI/GUI.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-Window window("Gui test", 800, 600);
+Window window("Gui test", 800, 800);
 
 int main(void)
 {
@@ -18,67 +20,68 @@ int main(void)
 
     glEnable(GL_BLEND);                                 //
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //important!
+    glEnable(GL_MULTISAMPLE);
 
 
     /**create GUI with its components**/
     GUI gui(&window, "drag me");
     gui.setTitleColor(glm::vec3(0.1f, 0.7f, 0.1f));
 
-    bool showSquare = true;
-    CheckBox checkBox1(&gui, &showSquare, "show sqare?:");
-
     float xPos = 0.f;
     float yPos = 0.f;
+    float radius = 0.f;
     Slider slider1(&gui, &xPos, 0.f, 1.f);
     Slider slider2(&gui, &yPos, 0.f, 1.f);
+    Slider slider3(&gui, &radius, 0.f, 1.f);
 
-    /**creation of the example square**/
     Renderer renderer(&window);
-    float positions[] =
-    {
-        //pos         //texCoord
-        0.f, 0.f,  
-        0.25f, 0.f, 
-        0.25f, 0.25f,
-        0.f, 0.25f
-    };
-
-    unsigned int indices[]
-    {
-        0, 1, 2, 3
-    };
-
-    Shader shader("Sqare.glsl");
-    VertexArray vao;
-    VertexBuffer vbo(positions, sizeof(positions), 0, 2);
-    IndexBuffer ibo(indices, sizeof(indices));
-    vao.unbind();
-    vbo.unbind();
-    ibo.unbind();
 
     glm::mat4 projection = glm::ortho(0.f, 1.f, 0.f, 1.f);
     glm::mat4 model = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, 0.f));
     glm::mat4 scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
     glm::mat4 mvp = projection * model * scale;
     
+    float position[] =
+    {
+        -1.f, -1.f,
+        1.f, -1.f,
+        1.f, 1.f,
+        -1.f, 1.f
+    };
+
+    unsigned int indicesCircle[] =
+    {
+        0,1,2,3
+    };
+
+    Shader circle("Cicle.glsl");
+    VertexArray vaoCircle;
+    VertexBuffer vboCirclePos(position, sizeof(position), 0, 2);
+    IndexBuffer iboCircle(indicesCircle, sizeof(indicesCircle));
+    vaoCircle.unbind();
+    vboCirclePos.unbind();
+    iboCircle.unbind();
+
     /**program loop**/
     while (!glfwWindowShouldClose(window.windowID)) 
     {
+        std::cout << glGetError() << std::endl;
         /* update input */
         gui.updateInput();
         slider1.setText("xPos: " + std::to_string(xPos));
         slider2.setText("yPos: " + std::to_string(yPos));
+        slider3.setText("radius: " + std::to_string(radius));
+
         /* Rendering */
-        //example sqare
+        //example circle
         renderer.clear();
-        if (showSquare)
-        {
-            shader.bind();
-            model = glm::translate(glm::mat4(1.f), glm::vec3(xPos, yPos, 0.f));
-            mvp = projection * model * scale;
-            shader.setUniformMat4f("MVP", mvp);
-            renderer.draw(&vao, GL_POLYGON, 4);
-        }
+
+        circle.bind();
+        circle.setUniformMat4f("MVP", mvp);
+        circle.setUniform2f("radius", radius, 0.f);
+        circle.setUniform2f("windowSize", window.getWidth(), window.getHight());
+        circle.setUniform2f("ofset", xPos, yPos);
+        renderer.draw(&vaoCircle, GL_POLYGON, 4);
 
         //draw gui with components --> neads to be drawn last 
         gui.draw();

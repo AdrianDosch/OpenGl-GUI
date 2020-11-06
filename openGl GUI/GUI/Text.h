@@ -1,13 +1,16 @@
-#pragma once
+#ifndef TEXT_H
+#define TEXT_H
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include "Includes.h"
 
-#include <ft2build.h>
-#include FT_FREETYPE_H
+#include GLEW
+#include GLFW3
+
+#include FT2BUILD
+#include FREETYPE
 #include <map>
-#include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
+#include GLM
+#include MATRIX_TRANSFORM
 
 #include "Shader.h"
 #include "Window.h"
@@ -39,3 +42,5 @@ public:
     unsigned int getMaxHight(std::string text);
 };
 
+
+#endif

@@ -20,6 +20,7 @@ void Window::setOpenGlVersion(int major, int minor, int profile)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, profile);
+	glfwWindowHint(GLFW_SAMPLES, 12); // used for anti aliasing | higher number = better anti aliasing
 }
 
 void Window::bind()

@@ -6,14 +6,16 @@
 #ifndef GUI_H
 #define GUI_H
 
+#include "Includes.h"
+
 #include <iostream>
 #include <variant>
 #include <vector>
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm.hpp>
-#include <gtx/string_cast.hpp>
+#include GLEW
+#include GLFW3
+#include GLM
+#include STRING_CAST
 
 #include "Shader.h"
 #include "VertexArray.h"

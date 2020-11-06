@@ -1,11 +1,13 @@
 #ifndef SLIDER_H
 #define SLIDER_H
 
+#include "Includes.h"
+
 #include <iostream>
 #include <string>
 
-#include <glm.hpp>
-#include <gtx/string_cast.hpp>
+#include GLM
+#include STRING_CAST
 
 #include "VertexArray.h"
 #include "VertexBuffer.h"

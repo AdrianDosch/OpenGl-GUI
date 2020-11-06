@@ -2,10 +2,12 @@
 #ifndef RENDERING_H
 #define RENDERING_H
 
+#include "Includes.h"
+
 #include <string>
 
-#include <glm.hpp>
-#include <gtx/string_cast.hpp>
+#include GLM
+#include STRING_CAST
 
 #include "VertexArray.h"
 #include "Shader.h"
