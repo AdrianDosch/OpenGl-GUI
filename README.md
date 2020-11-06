@@ -43,3 +43,62 @@ SETUP
        xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"
     x64:
        xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"
+
+IMPLEMENTATION
+1. Include the GUI libary. You have to include the Includes.h file first. It does not matter if you include include glew.h and glfw3. bevore or after the GUI libary:
+   #include "GUI\Includes.h"
+   #include "GUI/GUI.h"
+   
+2. Create a window useing the Window class:
+   Window window("Gui test", 800, 800);   // the size is optional
+ 
+3. OpenGl things you have to enable after createing a Window:
+    glEnable(GL_BLEND);                                 //
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //important!
+    
+4. create a GUI-Window useing the GUI class:
+   GUI gui(&window, "GUI-window name"); //the first parameter is the Window object createt in step 2, the name is optional
+   
+5. (optional) create the sliders and checkboxes that the GUI-Window should contain. The order of the creation determines the order. You nead to pass in the variables which you want to be changed by the sliders/chackboxes:
+   float float1 = 0.f;
+   bool bool1 = false;
+   CheckBox checkBox1 (&gui, &bool1);
+   Slider slider1(&gui, &float1, 0.f, 1.f); // the min value of the variable float1 is 0 and the max value is 1 
+   
+6. Update the input every frame:
+   gui.updateInput(); // gui is the object we created in step 4
+   
+7. Draw the GUI-Window every frame after calling glClear(). You should call this function after drawing all of your other OpenGl stuff so the GUI-Window isn't drawn behind other objects:
+   //all your OpenGl draw calls
+   gui.draw();
+   
+   
+   
+CUSTOMISATION
+It is possible to change almost every property of the GUI-Window and its components. 
+GUI:
+   setColor(glm::fvec4 color)
+   setPosition(glm::fvec2 position)
+   setWidth(float width)
+   setHight(float hight)
+   setTitle(std::string title)
+   setTitleColor(glm::fvec3 color)
+   FixPosition(bool state)
+
+CheckBox:
+   setText(std::string text)
+   
+Slider:
+   setText(std::string text)
+
+
+
+TIPPS AND TRICKS
+The overall hight of the GUI-Window in percent of the whole window is calculatet as follows:
+   gui.getHight() * gui.getMemberCount();
+You can set the Text of a slider every frame to display the exact value of the variable:
+   slider1.setText("float1: " + std::to_string(float1));
+you can set the most important properties right at the creation of the objects. e.g.:
+                   //title,       position,              color,                           width, hight
+   GUI gui(&window, "nice title", glm::vec2(0.2f, 0.8f), glm::vec4(0.1f, 0.8f, 0.4f, 1.f), 0.7f, 0.15f);
+   
