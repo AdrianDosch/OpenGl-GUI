@@ -72,3 +72,33 @@ IMPLEMENTATION
    //all your OpenGl draw calls
    gui.draw();
    
+   
+   
+CUSTOMISATION
+It is possible to change almost every property of the GUI-Window and its components. 
+GUI:
+   setColor(glm::fvec4 color)
+   setPosition(glm::fvec2 position)
+   setWidth(float width)
+   setHight(float hight)
+   setTitle(std::string title)
+   setTitleColor(glm::fvec3 color)
+   FixPosition(bool state)
+
+CheckBox:
+   setText(std::string text)
+   
+Slider:
+   setText(std::string text)
+
+
+
+TIPPS AND TRICKS
+The overall hight of the GUI-Window in percent of the whole window is calculatet as follows:
+   gui.getHight() * gui.getMemberCount();
+You can set the Text of a slider every frame to display the exact value of the variable:
+   slider1.setText("float1: " + std::to_string(float1));
+you can set the most important properties right at the creation of the objects. e.g.:
+                   //title,       position,              color,                           width, hight
+   GUI gui(&window, "nice title", glm::vec2(0.2f, 0.8f), glm::vec4(0.1f, 0.8f, 0.4f, 1.f), 0.7f, 0.15f);
+   
