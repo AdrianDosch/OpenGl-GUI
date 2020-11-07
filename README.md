@@ -48,6 +48,7 @@ SETUP
        xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"
 
 IMPLEMENTATION
+
 1. Include the GUI libary. You have to include the Includes.h file first. It does not matter if you include include glew.h and glfw3. bevore or after the GUI libary:
    #include "GUI\Includes.h"
    #include "GUI/GUI.h"
@@ -78,6 +79,7 @@ IMPLEMENTATION
    
    
 CUSTOMISATION
+
 It is possible to change almost every property of the GUI-Window and its components. 
 GUI:
    setColor(glm::fvec4 color)
@@ -97,6 +99,7 @@ Slider:
 
 
 TIPPS AND TRICKS
+
 The overall hight of the GUI-Window in percent of the whole window is calculatet as follows:
    gui.getHight() * gui.getMemberCount();
 You can set the Text of a slider every frame to display the exact value of the variable:
