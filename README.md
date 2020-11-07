@@ -18,6 +18,7 @@ external libarys I use:
 How to use this libary:
 
 SETUP
+
 0. Use the C++ 17 compiler!
 
 1. Copy the folder "GUI" which you can find under "OpenGl-GUI/openGl GUI" and paste it into the folder which contains the project file of your OpenGL program:
