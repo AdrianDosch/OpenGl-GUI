@@ -18,9 +18,11 @@ external libarys I use:
 How to use this libary:
 
 SETUP
-1. copy the folder "GUI" which you can find under "OpenGl-GUI/openGl GUI" and paste it into the folder which contains the project file of your OpenGL program:
+0. Use the C++ 17 compiler!
 
-2. link to all .lib files of the external libarys mentioned (Freetype, GLFW, GLEW). For every libary there are two .lib files. (one win32 and one x64)
+1. Copy the folder "GUI" which you can find under "OpenGl-GUI/openGl GUI" and paste it into the folder which contains the project file of your OpenGL program:
+
+2. Link to all .lib files of the external libarys mentioned (Freetype, GLFW, GLEW). For every libary there are two .lib files. (one win32 and one x64)
    if you have put the GUI folder in the recommended directory the linker setup should be as follows:
    Visual Studio:
    Additional Libary Directories:
