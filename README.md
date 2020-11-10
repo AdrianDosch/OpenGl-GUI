@@ -92,9 +92,15 @@ GUI:
 
 CheckBox:
    setText(std::string text)
+   void setTextColor(float r = 1.f, float g = 1.f, float b = 1.f)
    
 Slider:
    setText(std::string text)
+   void setTextColor(float r = 1.f, float g = 1.f, float b = 1.f)
+	void setPositionBar(float leftEnd = 0.5f, float rightEnd = (19.f/20.f))
+	void setWidthSlider(float width = (1.f/20.f))
+	void setColorBar(float r = 0.8f, float g = 0.6f, float b = 0.1f, float a = 1.f)
+	void setColorSlider(float r = 0.9f, float g = 0.6f, float b = 0.1f, float a = 1.f)
 
 
 
