@@ -62,6 +62,7 @@ public:
 	void draw();
 	void onClick(float xPos, float yPos);
 	void setText(std::string text);
+	void setTextColor(float r = 1.f, float g = 1.f, float b = 1.f);
 };
 
 #endif

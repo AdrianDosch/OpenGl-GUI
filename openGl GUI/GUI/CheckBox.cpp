@@ -81,3 +81,8 @@ void CheckBox::setText(std::string text)
 {
 	m_text = text;
 }
+
+void CheckBox::setTextColor(float r, float g, float b)
+{
+	m_textColor = glm::vec3(r, g, b);
+}

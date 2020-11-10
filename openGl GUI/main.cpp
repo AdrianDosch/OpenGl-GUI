@@ -27,20 +27,18 @@ int main(void)
     GUI gui(&window, "drag me");
     gui.setTitleColor(glm::vec3(0.1f, 0.7f, 0.1f));
 
-    float xPos = 0.f;
-    float yPos = 0.f;
-    float radius = 0.f;
+    bool showCircle = true;
+    float xPos = 0.5f;
+    float yPos = 0.5f;
+    float radius = 0.2f;
+    CheckBox box1(&gui, &showCircle, "render circle");
     Slider slider1(&gui, &xPos, 0.f, 1.f);
     Slider slider2(&gui, &yPos, 0.f, 1.f);
     Slider slider3(&gui, &radius, 0.f, 1.f);
 
     Renderer renderer(&window);
-
-    glm::mat4 projection = glm::ortho(0.f, 1.f, 0.f, 1.f);
-    glm::mat4 model = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, 0.f));
-    glm::mat4 scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
-    glm::mat4 mvp = projection * model * scale;
     
+    /**create circle**/
     float position[] =
     {
         -1.f, -1.f,
@@ -62,6 +60,8 @@ int main(void)
     vboCirclePos.unbind();
     iboCircle.unbind();
 
+    glm::mat4 mvp = glm::ortho(0.f, 1.f, 0.f, 1.f);
+
     /**program loop**/
     while (!glfwWindowShouldClose(window.windowID)) 
     {
@@ -75,13 +75,15 @@ int main(void)
         /* Rendering */
         //example circle
         renderer.clear();
-
-        circle.bind();
-        circle.setUniformMat4f("MVP", mvp);
-        circle.setUniform2f("radius", radius, 0.f);
-        circle.setUniform2f("windowSize", window.getWidth(), window.getHight());
-        circle.setUniform2f("ofset", xPos, yPos);
-        renderer.draw(&vaoCircle, GL_POLYGON, 4);
+        if (showCircle)
+        {
+            circle.bind();
+            circle.setUniformMat4f("MVP", mvp);
+            circle.setUniform2f("radius", radius, 0.f);
+            circle.setUniform2f("windowSize", window.getWidth(), window.getHight());
+            circle.setUniform2f("ofset", xPos, yPos);
+            renderer.draw(&vaoCircle, GL_POLYGON, 4);
+        }
 
         //draw gui with components --> neads to be drawn last 
         gui.draw();
