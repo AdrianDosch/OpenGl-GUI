@@ -107,7 +107,9 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"</Command>
+      <Command> xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -131,7 +133,9 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"</Command>
+      <Command> xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,7 +155,9 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"</Command>
+      <Command>xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders/*.*" "$(OutDir)Shaders\" &amp;
+ xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,7 +181,9 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"</Command>
+      <Command>xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders/*.*" "$(OutDir)Shaders\" &amp;
+ xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -205,7 +213,6 @@
     <ClInclude Include="GUI\Includes.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Cicle.glsl" />
     <None Include="GUI\Dependencies\dlls\win32\freetype.dll">
       <DeploymentContent>true</DeploymentContent>
       <FileType>Document</FileType>
@@ -222,18 +229,27 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
     </None>
     <None Include="GUI\Shaders\GUIShader.glsl">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </DeploymentContent>
     </None>
     <None Include="GUI\Shaders\TextShader.glsl">
       <FileType>Document</FileType>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </DeploymentContent>
     </None>
+    <None Include="Shaders\Cicle.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="GUI\fonts\arial.ttf">

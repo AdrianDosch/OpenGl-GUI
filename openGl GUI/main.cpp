@@ -52,7 +52,7 @@ int main(void)
         0,1,2,3
     };
 
-    Shader circle("Cicle.glsl");
+    Shader circle("Shaders/Cicle.glsl");
     VertexArray vaoCircle;
     VertexBuffer vboCirclePos(position, sizeof(position), 0, 2);
     IndexBuffer iboCircle(indicesCircle, sizeof(indicesCircle));
@@ -65,7 +65,7 @@ int main(void)
     /**program loop**/
     while (!glfwWindowShouldClose(window.windowID)) 
     {
-        std::cout << glGetError() << std::endl;
+        //std::cout << glGetError() << std::endl;
         /* update input */
         gui.updateInput();
         slider1.setText("xPos: " + std::to_string(xPos));

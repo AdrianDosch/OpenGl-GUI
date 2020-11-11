@@ -94,9 +94,6 @@
     <None Include="GUI\Shaders\GUIShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Cicle.glsl">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="GUI\Shaders\TextShader.glsl">
       <Filter>Shaders</Filter>
     </None>
@@ -106,6 +103,7 @@
     <None Include="GUI\Dependencies\dlls\x64\freetype.dll">
       <Filter>Dependencies</Filter>
     </None>
+    <None Include="Shaders\Cicle.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="GUI\fonts\arial.ttf">
