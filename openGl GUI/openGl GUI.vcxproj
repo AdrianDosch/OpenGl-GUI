@@ -107,7 +107,8 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
  xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp; 
  xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
@@ -133,7 +134,8 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
  xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp; 
  xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
@@ -155,8 +157,9 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
- xcopy /d /y "$(ProjectDir)Shaders/*.*" "$(OutDir)Shaders\" &amp;
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp;
  xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -181,8 +184,9 @@
       <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
- xcopy /d /y "$(ProjectDir)Shaders/*.*" "$(OutDir)Shaders\" &amp;
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp;
  xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -252,9 +256,18 @@
     <None Include="Shaders\Cicle.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="GUI\fonts\arial.ttf">
+    <None Include="GUI\fonts\arial.ttf">
       <DeploymentContent>true</DeploymentContent>
-    </Font>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
