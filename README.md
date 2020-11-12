@@ -67,7 +67,7 @@ IMPLEMENTATION
    Slider slider1(&gui, &float1, 0.f, 1.f); // the min value of the variable float1 is 0 and the max value is 1 
    
 6. Update the input every frame:
-   gui.updateInput(); // gui is the object we created in step 4
+   gui.updateInput(); // gui is the object we created in step 3
    
 7. Draw the GUI-Window every frame after calling glClear(). You should call this function after drawing all of your other OpenGl stuff so the GUI-Window isn't drawn behind other objects:
    //all your OpenGl draw calls
