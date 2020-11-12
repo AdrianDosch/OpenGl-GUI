@@ -1,12 +1,11 @@
 #ifndef CHECKBOX_H
 #define CHECKBOX_H
 
-#include "Includes.h"
 
 #include <iostream>
 #include <string>
 
-#include GLM
+#include <glm.hpp>
 
 #include "VertexArray.h"
 #include "VertexBuffer.h"

@@ -2,10 +2,8 @@
 #ifndef VERTEXARRAY_H
 #define VERTEXARRAY_H
 
-#include "Includes.h"
-
 #define GLEW_STATIC
-#include GLEW
+#include <GL/glew.h>
 
 class VertexArray
 {

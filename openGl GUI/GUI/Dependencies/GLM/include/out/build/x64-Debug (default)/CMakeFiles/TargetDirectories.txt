@@ -1,2 +1,0 @@
-C:/dev/openGl GUI/openGl GUI/Dependencies/GLM/include/out/build/x64-Debug (default)/CMakeFiles/edit_cache.dir
-C:/dev/openGl GUI/openGl GUI/Dependencies/GLM/include/out/build/x64-Debug (default)/CMakeFiles/rebuild_cache.dir

@@ -2,10 +2,8 @@
 #ifndef VERTEXBUFFER_H
 #define VERTEXBUFFER_H
 
-#include "Includes.h"
-
 #define GLEW_STATIC
-#include GLEW
+#include <GL/glew.h>
 
 class VertexBuffer
 {

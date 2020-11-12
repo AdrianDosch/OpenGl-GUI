@@ -37,13 +37,13 @@
 #ifndef FTCONFIG_H_
 #define FTCONFIG_H_
 
-#include "../../ft2build.h" // changed from <ft2build.h>
-#include "ftoption.h" //changed from FT_CONFIG_OPTIONS_H
-#include "../config/ftstdlib.h"  //changed from FT_CONFIG_STANDARD_LIBRARY_H
+#include <ft2build.h>
+#include FT_CONFIG_OPTIONS_H
+#include FT_CONFIG_STANDARD_LIBRARY_H
 
-#include "../config/integer-types.h" //changd from <freetype/config/integer-types.h>
-#include "../config/public-macros.h" //changd from <freetype/config/public-macros.h>
-#include "../config/mac-support.h" //changd from <freetype/config/mac-support.h>
+#include <freetype/config/integer-types.h>
+#include <freetype/config/public-macros.h>
+#include <freetype/config/mac-support.h>
 
 #endif /* FTCONFIG_H_ */
 

@@ -2,10 +2,8 @@
 #ifndef INDEXBUFFER_H
 #define INDEXBUFFER_H
 
-#include "Includes.h"
-
 #define GLEW_STATIC
-#include GLEW
+#include <gl/glew.h>
 
 class IndexBuffer
 {

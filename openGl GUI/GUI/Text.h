@@ -1,16 +1,14 @@
 #ifndef TEXT_H
 #define TEXT_H
 
-#include "Includes.h"
+#include <gl/glew.h>
+#include <GLFW/glfw3.h>
 
-#include GLEW
-#include GLFW3
-
-#include FT2BUILD
-#include FREETYPE
+#include <ft2build.h>
+#include <freetype/freetype.h>
 #include <map>
-#include GLM
-#include MATRIX_TRANSFORM
+#include <glm.hpp>
+#include <gtc\matrix_transform.hpp>
 
 #include "Shader.h"
 #include "Window.h"

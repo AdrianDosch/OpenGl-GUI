@@ -1,9 +1,7 @@
-#include "GUI\Includes.h"
-
 #include <iostream>
 
-#include GLEW
-#include GLFW3
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 #include "GUI/GUI.h"
 

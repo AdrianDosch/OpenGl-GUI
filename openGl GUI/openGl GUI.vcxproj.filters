@@ -86,9 +86,6 @@
     <ClInclude Include="GUI\VertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\Includes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI\Shaders\GUIShader.glsl">
@@ -103,11 +100,11 @@
     <None Include="GUI\Dependencies\dlls\x64\freetype.dll">
       <Filter>Dependencies</Filter>
     </None>
-    <None Include="Shaders\Cicle.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="GUI\fonts\arial.ttf">
-      <Filter>Dependencies</Filter>
-    </Font>
+    <None Include="GUI\fonts\arial.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\Cicle.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

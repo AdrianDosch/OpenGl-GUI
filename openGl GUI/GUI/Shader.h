@@ -2,15 +2,13 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-#include "Includes.h"
-
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
-#include GLEW
-#include GLM
-#include TYPE_PTR
+#include <GL/glew.h>
+#include <glm.hpp>
+#include <gtc\type_ptr.hpp>
 
 
 struct Shader

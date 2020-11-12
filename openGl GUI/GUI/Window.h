@@ -1,17 +1,15 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "Includes.h"
-
 #include <string>
 #include <iostream>
 
 #ifndef GLEW_STATIC
 #define GLEW_STATIC
-#include GLEW
+#include <gl/glew.h>
 #endif
 
-#include GLFW3
+#include <GLFW/glfw3.h>
 
 class Window
 {
