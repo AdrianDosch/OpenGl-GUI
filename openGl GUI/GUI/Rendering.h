@@ -17,12 +17,12 @@
 class Renderer
 {
 private:
-	Window* m_window;
+	GLFWwindow* m_windowID;
 	Shader m_textShader;
 	Text m_textObj;
 
 public:
-	Renderer(Window* window);
+	Renderer(GLFWwindow* m_windowID);
 	~Renderer();
 
 	void draw(VertexArray* vao, GLenum drawMode, int numOfIndices);

@@ -34,7 +34,7 @@ private:
     unsigned int VAO, VBO;
 
 public:
-	Text(Window* window);
+	Text(GLFWwindow* windowID);
 	~Text();
 
     unsigned int RenderText(Shader& shader, std::string text, float x, float y, float scaleX, float scaleY, glm::vec3 color);

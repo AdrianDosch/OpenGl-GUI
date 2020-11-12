@@ -60,8 +60,11 @@ void CheckBox::draw()
 
 void CheckBox::onClick(float xPos, float yPos)
 {
-	xPos = xPos / m_gui->m_window->getWidth();
-	yPos = yPos / m_gui->m_window->getHight();
+	int screenWidth, screenHeight;
+	glfwGetWindowSize(m_gui->m_windowID, &screenWidth, &screenHeight);
+
+	xPos = xPos / screenWidth;
+	yPos = yPos / screenHeight;
 	yPos = 1 - yPos;
 
 	if (xPos - m_gui->getPosition().x > 0 && xPos - m_gui->getPosition().x < m_gui->getWidth() &&

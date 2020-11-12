@@ -76,7 +76,7 @@ private:
 	void onClick(float xPos, float yPos);
 
 public:
-	Window* m_window;
+	GLFWwindow* m_windowID;
 
 	Renderer m_renderer;
 	Shader m_shader;
@@ -86,7 +86,7 @@ public:
 	glm::mat4 m_scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));
 	glm::mat4 m_mvp = m_projection * m_model * m_scale;
 
-	GUI(Window* window, std::string m_title = "", glm::vec2 position = glm::vec2(0.5f, 0.5f), glm::vec4 color = glm::vec4(0.1f, 0.4f, 0.6f, 1.f), float width = 0.5f, float hight = 0.1);
+	GUI(GLFWwindow* windowID, std::string m_title = "", glm::vec2 position = glm::vec2(0.5f, 0.5f), glm::vec4 color = glm::vec4(0.1f, 0.4f, 0.6f, 1.f), float width = 0.5f, float hight = 0.1);
 	~GUI();
 
 	void draw();

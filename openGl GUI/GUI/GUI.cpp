@@ -1,16 +1,16 @@
 #include "GUI.h"
 
-GUI::GUI(Window* window, std::string title /*= ""*/, glm::vec2 position /*= glm::vec2(0.5f, 0.5f)*/, glm::vec4 color /*= glm::vec4(0.1f, 0.4f, 0.3f, 1.f)*/, float width /*= 0.f*/, float hight /*= 0.2*/) :
+GUI::GUI(GLFWwindow* windowID, std::string title /*= ""*/, glm::vec2 position /*= glm::vec2(0.5f, 0.5f)*/, glm::vec4 color /*= glm::vec4(0.1f, 0.4f, 0.3f, 1.f)*/, float width /*= 0.f*/, float hight /*= 0.2*/) :
 	m_titleText(title),
 	m_position(position),
 	m_color(color),
 	m_width(width),
 	m_hight(hight),
 	m_membercount(0),
-	m_window(window),
+	m_windowID(windowID),
 
-	m_title(window),
-	m_renderer(window),
+	m_title(windowID),
+	m_renderer(windowID),
 
 	m_shader("GUI/Shaders/GUIShader.glsl"),
 	m_vboPosition(m_positions, sizeof(m_positions), 0, 2),
@@ -57,10 +57,10 @@ void GUI::draw()
 
 void GUI::updateInput()
 {
-	if (glfwGetMouseButton(m_window->windowID, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+	if (glfwGetMouseButton(m_windowID, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
 	{
 		double xPos, yPos = 0;
-		glfwGetCursorPos(m_window->windowID, &xPos, &yPos);
+		glfwGetCursorPos(m_windowID, &xPos, &yPos);
 
 		for (int i = 0; i < m_members.size(); i++)
 		{
@@ -79,8 +79,11 @@ void GUI::updateInput()
 
 void GUI::onClick(float xPos, float yPos)
 {
-	xPos = xPos / m_window->getWidth();
-	yPos = yPos / m_window->getHight();
+	int screenWidth, screenHeight;
+	glfwGetWindowSize(m_windowID, &screenWidth, &screenHeight);
+
+	xPos = xPos / screenWidth;
+	yPos = yPos / screenHeight;
 	yPos = 1 - yPos;
 
 	if (xPos - getPosition().x > 0 && xPos - getPosition().x < getWidth() &&

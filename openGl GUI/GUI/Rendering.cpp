@@ -1,9 +1,9 @@
 #include "Rendering.h"
 
-Renderer::Renderer(Window* window):
-	m_window(window),
+Renderer::Renderer(GLFWwindow* m_windowID):
+	m_windowID(m_windowID),
 	m_textShader("GUI/Shaders/TextShader.glsl"),
-	m_textObj(window)
+	m_textObj(m_windowID)
 {
 
 }
@@ -29,8 +29,11 @@ void Renderer::drawText(std::string text, float xPos, float yPos, float maxHight
 {
 	m_textShader.bind();
 
-	float width = (1 / (float)m_window->getWidth()) * ((float)m_textObj.getAdvancment(text) / 64.f);		//
-	float hight = (1 / (float)m_window->getHight()) * m_textObj.getMaxHight(text);							// size of the Text in percent
+	int screenWidth, screenHeight;
+	glfwGetWindowSize(m_windowID, &screenWidth, &screenHeight);
+
+	float width = (1 / (float)screenWidth) * ((float)m_textObj.getAdvancment(text) / 64.f);		//
+	float hight = (1 / (float)screenWidth) * m_textObj.getMaxHight(text);							// size of the Text in percent
 	float toMiddle = maxHight / 2 - hight / 2;																// offset to bottom of the Background so the text is in the middle
 
 	glm::mat4 scale = glm::scale(glm::mat4(1.f), glm::vec3(1.f, 1.f, 1.f));									//
@@ -55,5 +58,5 @@ void Renderer::drawText(std::string text, float xPos, float yPos, float maxHight
 	glm::mat4 model = glm::translate(glm::mat4(1.f), glm::vec3(xPos, yPos, 0));
 	glm::mat4 mvp = projection * model * scale;
 	m_textShader.setUniformMat4f("u_MVP", mvp);
-	m_textObj.RenderText(m_textShader, text, 0.f, toMiddle, 1.f / m_window->getWidth(), 1.f / m_window->getHight(), color);
+	m_textObj.RenderText(m_textShader, text, 0.f, toMiddle, 1.f / screenWidth, 1.f / screenHeight, color);
 }

@@ -24,7 +24,7 @@ int main(void)
 
 
     /**create GUI with its components**/
-    GUI gui(&window, "drag me");
+    GUI gui(window.windowID, "drag me");
     gui.setTitleColor(glm::vec3(0.1f, 0.7f, 0.1f));
 
     bool showCircle = true;
@@ -36,7 +36,7 @@ int main(void)
     Slider slider2(&gui, &yPos, 0.f, 1.f);
     Slider slider3(&gui, &radius, 0.f, 1.f);
 
-    Renderer renderer(&window);
+    Renderer renderer(window.windowID);
     
     /**create circle**/
     float position[] =

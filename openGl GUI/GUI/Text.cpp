@@ -1,9 +1,11 @@
 #include "Text.h"
 
-Text::Text(Window* window)
+Text::Text(GLFWwindow* windowID)
 {
     Shader textShader("GUI/Shaders/textShader.glsl");
-    glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(window->getWidth()), 0.0f, static_cast<float>(window->getHight()));
+    int width, height;
+    glfwGetWindowSize(windowID, &width, &height);
+    glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(width), 0.0f, static_cast<float>(height));
     textShader.setUniformMat4f("projection", projection);
 
     // FreeType
