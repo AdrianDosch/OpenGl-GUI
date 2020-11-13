@@ -52,16 +52,13 @@ IMPLEMENTATION
 1. Include the GUI libary. You have to include the Includes.h file first. It does not matter if you include include glew.h and glfw3. bevore or after the GUI libary:
    #include "GUI\Includes.h"
    #include "GUI/GUI.h"
-   
-2. Create a window useing the Window class:
-   Window window("Gui test", 800, 800);   // the size is optional
  
-3. OpenGl things you have to enable after createing a Window:
+2. OpenGl things you have to enable after createing a Window:
     glEnable(GL_BLEND);                                 //
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //important!
     
-4. create a GUI-Window useing the GUI class:
-   GUI gui(&window, "GUI-window name"); //the first parameter is the Window object createt in step 2, the name is optional
+3. create a GUI-Window useing the GUI class:
+   GUI gui(windowID, "GUI-window name"); //the first parameter is the WindowID pointer from GLFW, the name is optional
    
 5. (optional) create the sliders and checkboxes that the GUI-Window should contain. The order of the creation determines the order. You nead to pass in the variables which you want to be changed by the sliders/chackboxes:
    float float1 = 0.f;
@@ -70,7 +67,7 @@ IMPLEMENTATION
    Slider slider1(&gui, &float1, 0.f, 1.f); // the min value of the variable float1 is 0 and the max value is 1 
    
 6. Update the input every frame:
-   gui.updateInput(); // gui is the object we created in step 4
+   gui.updateInput(); // gui is the object we created in step 3
    
 7. Draw the GUI-Window every frame after calling glClear(). You should call this function after drawing all of your other OpenGl stuff so the GUI-Window isn't drawn behind other objects:
    //all your OpenGl draw calls
