@@ -23,8 +23,10 @@ SETUP
 
 1. Copy the folder "GUI" which you can find under "OpenGl-GUI/openGl GUI" and paste it into the folder which contains the project file of your OpenGL program:
 
-2. Link to all .lib files of the external libarys mentioned (Freetype, GLFW, GLEW). For every libary there are two .lib files. (one win32 and one x64)
-   if you have put the GUI folder in the recommended directory the linker setup should be as follows:
+2. Link to all the include pahts of the external libarys. (GLFW, GLM, GLEW). You can find these in the "external" directory. If you are already useing these libarys you don't have to link to them again.
+
+3. Link to all .lib files of the external libarys mentioned (Freetype, GLFW, GLEW). For every libary there are two .lib files. (one win32 and one x64)
+   If you put the GUI folder in the recommended directory the linker setup should be as follows:
    Visual Studio:
    Additional Libary Directories:
    win32:
@@ -34,14 +36,14 @@ SETUP
    Additional Dependencies:
      All Platforms:
      freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib
-  
-3. Link to the .dll files of freetype. You can find these in the directory "GUI\Dependencies\dlls\". Visual studio gives you the option to link to dll files useing environment variables. If you have put the GUI folder in the recommended directory the Environment setup should be as follows:
+ 
+4. Link to the .dll files of freetype. You can find these in the directory "GUI\Dependencies\dlls\". Visual studio gives you the option to link to dll files useing environment variables. If you have put the GUI folder in the recommended directory the Environment setup should be as follows:
    win32:
      PATH=%PATH%;$(ProjectDir)GUI\Dependencies\dlls\win32
    x64:
      PATH=%PATH%;$(ProjectDir)GUI\Dependencies\dlls\x64
  
- 4. (optional) This step is only neaded if you want to execute youre program outside of your IDE. Copy the .dll files fo freetype to the corresponding outpute directory of your OpenGl Project. You can find these in the directory "GUI\Dependencies\dlls\". Visual studio gives you the option to automate this process by useing a post build event. If you have put the GUI folder in the recommended directory the Post-Build Event setup should be as follows:
+ 5. (optional) This step is only neaded if you want to execute youre program outside of your IDE. Copy the .dll files fo freetype to the corresponding outpute directory of your OpenGl Project. You can find these in the directory "GUI\Dependencies\dlls\". Visual studio gives you the option to automate this process by useing a post build event. If you have put the GUI folder in the recommended directory the Post-Build Event setup should be as follows:
     win32:
        xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"
     x64:
@@ -50,7 +52,6 @@ SETUP
 IMPLEMENTATION
 
 1. Include the GUI libary. You have to include the Includes.h file first. It does not matter if you include include glew.h and glfw3. bevore or after the GUI libary:
-   #include "GUI\Includes.h"
    #include "GUI/GUI.h"
  
 2. OpenGl things you have to enable after createing a Window:
@@ -60,7 +61,7 @@ IMPLEMENTATION
 3. create a GUI-Window useing the GUI class:
    GUI gui(windowID, "GUI-window name"); //the first parameter is the WindowID pointer from GLFW, the name is optional
    
-5. (optional) create the sliders and checkboxes that the GUI-Window should contain. The order of the creation determines the order. You nead to pass in the variables which you want to be changed by the sliders/chackboxes:
+5. Create the sliders and checkboxes that the GUI-Window should contain. The order of the creation determines the order. You nead to pass in the variables which you want to be changed by the sliders/chackboxes. You can create as many Sliders/Checkboxes as you want:
    float float1 = 0.f;
    bool bool1 = false;
    CheckBox checkBox1 (&gui, &bool1);
