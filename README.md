@@ -1,6 +1,8 @@
 # OpenGl-GUI
 This libary can be used to display and change variables useing the mouse.
 
+![Image of GUI-Window](https://github.com/AdrianD873/OpenGl-GUI/blob/master/openGl%20GUI/sceenshot.PNG)
+
 current features:
 - creating a checkbox to control a bool
 - creating a slider to control a float
