@@ -7,7 +7,7 @@
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-Window window("Gui test", 800, 800);
+Window window("Gui test", 800, 600);
 
 int main(void)
 {

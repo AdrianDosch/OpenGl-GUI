@@ -17,8 +17,8 @@ class Text
 {
 private:
     // settings
-    const unsigned int SCR_WIDTH = 800;
-    const unsigned int SCR_HEIGHT = 600;
+    int SCR_WIDTH = 800;
+    int SCR_HEIGHT = 600;
 
     /// Holds all state information relevant to a character as loaded using FreeType
     struct Character {

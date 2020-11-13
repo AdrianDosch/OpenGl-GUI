@@ -2,6 +2,7 @@
 
 Text::Text(GLFWwindow* windowID)
 {
+    glfwGetWindowSize(windowID, &SCR_WIDTH, &SCR_HEIGHT);
     Shader textShader("GUI/Shaders/textShader.glsl");
     int width, height;
     glfwGetWindowSize(windowID, &width, &height);
