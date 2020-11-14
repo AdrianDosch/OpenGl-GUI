@@ -7,7 +7,7 @@
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-Window window("Gui test", 800, 600);
+Window window("Gui test", 800, 500);
 
 int main(void)
 {
@@ -19,7 +19,6 @@ int main(void)
     glEnable(GL_BLEND);                                 //
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //important!
     glEnable(GL_MULTISAMPLE);
-
 
     /**create GUI with its components**/
     GUI gui(window.windowID, "drag me");
@@ -83,7 +82,7 @@ int main(void)
             renderer.draw(&vaoCircle, GL_POLYGON, 4);
         }
 
-        //draw gui with components --> neads to be drawn last 
+        //draw gui with components --> should be drawn last 
         gui.draw();
 
         /* Swap front and back buffers */
