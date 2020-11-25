@@ -18,6 +18,7 @@ external libarys I use:
 - Freetype
 
 How to use this libary:
+Instead of following the steps listet in SETUP you can also just use the binary files
 
 SETUP
 
