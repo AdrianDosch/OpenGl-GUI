@@ -1,7 +1,7 @@
 # OpenGl-GUI
 This libary can be used to display and change variables useing the mouse.
 
-![Image of GUI-Window](https://github.com/AdrianD873/OpenGl-GUI/blob/master/openGl%20GUI/sceenshot.PNG)
+![Image of GUI-Window](https://github.com/AdrianD873/OpenGl-GUI/blob/master/GUI-src/sceenshot.PNG)
 
 current features:
 - creating a checkbox to control a bool
