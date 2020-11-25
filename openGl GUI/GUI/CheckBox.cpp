@@ -1,5 +1,10 @@
 #include "CheckBox.h"
 
+//test
+
+namespace GUI
+{
+
 CheckBox::CheckBox(GUI* gui, bool* var, std::string text, glm::vec3 textColor) :
 	m_variable(var),
 
@@ -89,3 +94,4 @@ void CheckBox::setTextColor(float r, float g, float b)
 {
 	m_textColor = glm::vec3(r, g, b);
 }
+}// end namespace

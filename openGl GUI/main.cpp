@@ -7,7 +7,7 @@
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-Window window("Gui test", 800, 500);
+GUI::Window window("Gui test", 800, 500);
 
 int main(void)
 {
@@ -21,19 +21,19 @@ int main(void)
     glEnable(GL_MULTISAMPLE);
 
     /**create GUI with its components**/
-    GUI gui(window.windowID, "drag me");
+    GUI::GUI gui(window.windowID, "drag me");
     gui.setTitleColor(glm::vec3(0.1f, 0.7f, 0.1f));
 
     bool showCircle = true;
     float xPos = 0.5f;
     float yPos = 0.5f;
     float radius = 0.2f;
-    CheckBox box1(&gui, &showCircle, "render circle");
-    Slider slider1(&gui, &xPos, 0.f, 1.f);
-    Slider slider2(&gui, &yPos, 0.f, 1.f);
-    Slider slider3(&gui, &radius, 0.f, 1.f);
+    GUI::CheckBox box1(&gui, &showCircle, "render circle");
+    GUI::Slider slider1(&gui, &xPos, 0.f, 1.f);
+    GUI::Slider slider2(&gui, &yPos, 0.f, 1.f);
+    GUI::Slider slider3(&gui, &radius, 0.f, 1.f);
 
-    Renderer renderer(window.windowID);
+    GUI::Renderer renderer(window.windowID);
     
     /**create circle**/
     float position[] =
@@ -49,10 +49,10 @@ int main(void)
         0,1,2,3
     };
 
-    Shader circle("Shaders/Cicle.glsl");
-    VertexArray vaoCircle;
-    VertexBuffer vboCirclePos(position, sizeof(position), 0, 2);
-    IndexBuffer iboCircle(indicesCircle, sizeof(indicesCircle));
+    GUI::Shader circle("Shaders/Cicle.glsl");
+    GUI::VertexArray vaoCircle;
+    GUI::VertexBuffer vboCirclePos(position, sizeof(position), 0, 2);
+    GUI::IndexBuffer iboCircle(indicesCircle, sizeof(indicesCircle));
     vaoCircle.unbind();
     vboCirclePos.unbind();
     iboCircle.unbind();

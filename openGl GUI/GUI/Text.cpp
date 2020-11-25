@@ -1,13 +1,18 @@
 #include "Text.h"
 
-Text::Text(GLFWwindow* windowID)
+namespace GUI
+{
+
+Text::Text(GLFWwindow* windowID, std::string pathToThisFile)
 {
     glfwGetWindowSize(windowID, &SCR_WIDTH, &SCR_HEIGHT);
-    Shader textShader("GUI/Shaders/textShader.glsl");
+    Shader textShader(pathToThisFile + std::string("/../Shaders/TextShader.glsl"));
     int width, height;
     glfwGetWindowSize(windowID, &width, &height);
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(width), 0.0f, static_cast<float>(height));
     textShader.setUniformMat4f("projection", projection);
+
+    std::cout << __FILE__ << std::endl;
 
     // FreeType
 // --------
@@ -19,7 +24,7 @@ Text::Text(GLFWwindow* windowID)
     }
 
     FT_Face face;
-    if (FT_New_Face(ft, "GUI/fonts/arial.ttf", 0, &face)) {
+    if (FT_New_Face(ft, (pathToThisFile + std::string("/../fonts/arial.ttf")).c_str(), 0, &face)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
     else {
@@ -165,3 +170,4 @@ unsigned int Text::getMaxHight(std::string text)
     }
     return hight;
 }
+}// end namespace

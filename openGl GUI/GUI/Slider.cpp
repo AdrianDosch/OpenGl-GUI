@@ -1,5 +1,8 @@
 #include "Slider.h"
 
+namespace GUI
+{
+
 Slider::Slider(GUI* gui, float* var, float min, float max, std::string text /*= ""*/, glm::vec3 textColor /*= glm::vec3(1.f, 1.f, 1.f)*/, float leftEnd, float rightEnd, float sliderWidth):
 	m_variable(var),
 	m_min(min),
@@ -209,3 +212,4 @@ void Slider::setColorSlider(float r, float g, float b, float a)
 	m_vboColorSlider.newData(m_colorsSlider, sizeof(m_colorsSlider), 1, 4);
 	m_vaoSlider.unbind();
 }
+}// end namespace

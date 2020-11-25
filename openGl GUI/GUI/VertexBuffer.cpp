@@ -1,6 +1,9 @@
 #include "VertexBuffer.h"
 #include <iostream>
 
+namespace GUI
+{
+
 VertexBuffer::VertexBuffer(float vertices[], unsigned int size, int location, int numOfDatapoints, GLenum drawType, GLenum normalize)
 {
 	m_vertices = vertices;
@@ -39,3 +42,4 @@ void VertexBuffer::unbind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
+}// end namespace

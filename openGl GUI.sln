@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openGl GUI", "openGl GUI\openGl GUI.vcxproj", "{DBD80BB7-B7C8-4630-8231-D69D8A992EDA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GUIlib", "GUIlib\GUIlib.vcxproj", "{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{DBD80BB7-B7C8-4630-8231-D69D8A992EDA}.Release|x64.Build.0 = Release|x64
 		{DBD80BB7-B7C8-4630-8231-D69D8A992EDA}.Release|x86.ActiveCfg = Release|Win32
 		{DBD80BB7-B7C8-4630-8231-D69D8A992EDA}.Release|x86.Build.0 = Release|Win32
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Debug|x64.ActiveCfg = Debug|x64
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Debug|x64.Build.0 = Debug|x64
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Debug|x86.ActiveCfg = Debug|Win32
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Debug|x86.Build.0 = Debug|Win32
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Release|x64.ActiveCfg = Release|x64
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Release|x64.Build.0 = Release|x64
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Release|x86.ActiveCfg = Release|Win32
+		{7B99322F-ABA6-4CBF-94CC-4E81CEF1DAE2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,11 @@
 #include "Rendering.h"
 
-Renderer::Renderer(GLFWwindow* m_windowID):
+namespace GUI
+{
+
+Renderer::Renderer(GLFWwindow* m_windowID, std::string pathToThisHeaderFile):
 	m_windowID(m_windowID),
-	m_textShader("GUI/Shaders/TextShader.glsl"),
+	m_textShader(pathToThisHeaderFile +  "/../Shaders/TextShader.glsl"),
 	m_textObj(m_windowID)
 {
 
@@ -60,3 +63,4 @@ void Renderer::drawText(std::string text, float xPos, float yPos, float maxHight
 	m_textShader.setUniformMat4f("u_MVP", mvp);
 	m_textObj.RenderText(m_textShader, text, 0.f, toMiddle, 1.f / screenWidth, 1.f / screenHeight, color);
 }
+}// end namespace

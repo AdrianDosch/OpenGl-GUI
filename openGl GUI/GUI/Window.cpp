@@ -1,5 +1,8 @@
 #include "Window.h"
 
+namespace GUI
+{
+
 Window::Window(std::string name, int width /*=0*/, int hight/*=0*/)
 	: m_width(width), m_hight(hight)
 {
@@ -43,3 +46,4 @@ int Window::getHight()
 {
 	return m_hight;
 }
+}// end namespace

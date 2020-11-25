@@ -1,6 +1,9 @@
 #include "IndexBuffer.h"
 #include <iostream>
 
+namespace GUI
+{
+
 IndexBuffer::IndexBuffer(unsigned int indices[], unsigned int size, GLenum drawType)
 {
 	m_indices = indices;
@@ -33,3 +36,4 @@ void IndexBuffer::unbind()
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
+}// end namespace
