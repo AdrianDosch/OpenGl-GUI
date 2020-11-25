@@ -18,59 +18,36 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\openGl GUI\GUI\CheckBox.h" />
-    <ClInclude Include="..\openGl GUI\GUI\GUI.h" />
-    <ClInclude Include="..\openGl GUI\GUI\IndexBuffer.h" />
-    <ClInclude Include="..\openGl GUI\GUI\Rendering.h" />
-    <ClInclude Include="..\openGl GUI\GUI\Shader.h" />
-    <ClInclude Include="..\openGl GUI\GUI\Slider.h" />
-    <ClInclude Include="..\openGl GUI\GUI\Text.h" />
-    <ClInclude Include="..\openGl GUI\GUI\VertexArray.h" />
-    <ClInclude Include="..\openGl GUI\GUI\VertexBuffer.h" />
-    <ClInclude Include="..\openGl GUI\GUI\Window.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\openGl GUI\GUI\CheckBox.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\GUI.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\IndexBuffer.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\Rendering.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\Shader.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\Slider.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\Text.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\VertexArray.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\VertexBuffer.cpp" />
-    <ClCompile Include="..\openGl GUI\GUI\Window.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7b99322f-aba6-4cbf-94cc-4e81cef1dae2}</ProjectGuid>
-    <RootNamespace>GUIlib</RootNamespace>
+    <ProjectGuid>{dbd80bb7-b7c8-4630-8231-d69d8a992eda}</ProjectGuid>
+    <RootNamespace>openGl_GUI</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>GUI-src</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -96,49 +73,45 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)objectfiles\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)objectFiles\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)objectfiles\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)objectFiles\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)objectfiles\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)objectFiles\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)objectfiles\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)objectFiles\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)external\FREETYPE\include;$(ProjectDir)external\GLM\include;$(ProjectDir)external\GLFW\include;$(ProjectDir)external\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)external\FREETYPE\lib\win32;$(ProjectDir)external\GLEW\lib\Release\Win32;$(ProjectDir)external\GLFW\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
-    <ProjectReference>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
+      <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)openGl GUI\GUI\Shaders\*.*" "$(ProjectDir)include\Shaders\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\fonts\*.*" "$(ProjectDir)include\fonts\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\*.h" "$(ProjectDir)include\"
-</Command>
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)external\FREETYPE\dlls\win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,56 +120,48 @@ xcopy /d /y "$(SolutionDir)openGl GUI\GUI\*.h" "$(ProjectDir)include\"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)external\FREETYPE\include;$(ProjectDir)external\GLM\include;$(ProjectDir)external\GLFW\include;$(ProjectDir)external\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)external\FREETYPE\lib\win32;$(ProjectDir)external\GLEW\lib\Release\Win32;$(ProjectDir)external\GLFW\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
-    <ProjectReference>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
+      <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)openGl GUI\GUI\Shaders\*.*" "$(ProjectDir)include\Shaders\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\fonts\*.*" "$(ProjectDir)include\fonts\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\*.h" "$(ProjectDir)include\"
-</Command>
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)external\FREETYPE\dlls\win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)external\FREETYPE\include;$(ProjectDir)external\GLM\include;$(ProjectDir)external\GLFW\include;$(ProjectDir)external\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)external\FREETYPE\lib\x64;$(ProjectDir)external\GLEW\lib\Release\x64;$(ProjectDir)external\GLFW\lib-vc2019-64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
-    <ProjectReference>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
+      <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)openGl GUI\GUI\Shaders\*.*" "$(ProjectDir)include\Shaders\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\fonts\*.*" "$(ProjectDir)include\fonts\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\*.h" "$(ProjectDir)include\"
-</Command>
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp;
+ xcopy /d /y "$(ProjectDir)external\FREETYPE\dlls\x64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -205,31 +170,105 @@ xcopy /d /y "$(SolutionDir)openGl GUI\GUI\*.h" "$(ProjectDir)include\"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)external\FREETYPE\include;$(ProjectDir)external\GLM\include;$(ProjectDir)external\GLFW\include;$(ProjectDir)external\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)external\FREETYPE\lib\x64;$(ProjectDir)external\GLEW\lib\Release\x64;$(ProjectDir)external\GLFW\lib-vc2019-64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
-    <ProjectReference>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
+      <AdditionalDependencies>freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)openGl GUI\GUI\Shaders\*.*" "$(ProjectDir)include\Shaders\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\fonts\*.*" "$(ProjectDir)include\fonts\" &amp;
-xcopy /d /y "$(SolutionDir)openGl GUI\GUI\*.h" "$(ProjectDir)include\"
-</Command>
+      <Command> xcopy /d /y "$(ProjectDir)GUI\fonts\*.*" "$(OutDir)GUI\fonts\" &amp; 
+ xcopy /d /y "$(ProjectDir)GUI\Shaders\*.*" "$(OutDir)GUI\Shaders\" &amp; 
+ xcopy /d /y "$(ProjectDir)Shaders\*.*" "$(OutDir)Shaders\" &amp;
+ xcopy /d /y "$(ProjectDir)external\FREETYPE\dlls\x64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GUI\CheckBox.cpp" />
+    <ClCompile Include="GUI\GUI.cpp" />
+    <ClCompile Include="GUI\IndexBuffer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GUI\Rendering.cpp" />
+    <ClCompile Include="GUI\Shader.cpp" />
+    <ClCompile Include="GUI\Slider.cpp" />
+    <ClCompile Include="GUI\Text.cpp" />
+    <ClCompile Include="GUI\VertexArray.cpp" />
+    <ClCompile Include="GUI\VertexBuffer.cpp" />
+    <ClCompile Include="GUI\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GUI\CheckBox.h" />
+    <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="GUI\IndexBuffer.h" />
+    <ClInclude Include="GUI\Rendering.h" />
+    <ClInclude Include="GUI\Shader.h" />
+    <ClInclude Include="GUI\Slider.h" />
+    <ClInclude Include="GUI\Text.h" />
+    <ClInclude Include="GUI\VertexArray.h" />
+    <ClInclude Include="GUI\VertexBuffer.h" />
+    <ClInclude Include="GUI\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Dependencies\dlls\win32\freetype.dll">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+    </None>
+    <None Include="GUI\Dependencies\dlls\x64\freetype.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+    </None>
+    <None Include="GUI\Shaders\GUIShader.glsl">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </DeploymentContent>
+    </None>
+    <None Include="GUI\Shaders\TextShader.glsl">
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </DeploymentContent>
+    </None>
+    <None Include="Shaders\Cicle.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\fonts\arial.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </DeploymentContent>
+    </None>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
