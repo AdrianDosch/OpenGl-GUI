@@ -12,7 +12,7 @@ Text::Text(GLFWwindow* windowID, std::string pathToThisFile)
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(width), 0.0f, static_cast<float>(height));
     textShader.setUniformMat4f("projection", projection);
 
-    std::cout << __FILE__ << std::endl;
+    std::cout << pathToThisFile << std::endl;
 
     // FreeType
 // --------
