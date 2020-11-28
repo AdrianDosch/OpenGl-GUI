@@ -17,40 +17,17 @@ external libarys I use:
 - GLFW
 - Freetype
 
-How to use this libary:
-Instead of following the steps listet in SETUP you can also just use the binary files
-
 SETUP
 
 0. Use the C++ 17 compiler!
 
-1. Copy the folder "GUI" which you can find under "OpenGl-GUI/openGl GUI" and paste it into the folder which contains the project file of your OpenGL program:
+1. Copy the folder "include" which you can find under and paste it into the include dirdctory of your project.
 
-2. Link to all the include pahts of the external libarys. (GLFW, GLM, GLEW). You can find these in the "external" directory. If you are already useing these libarys you don't have to link to them again.
+2. Link to all the include pahts of the external libarys. (GLFW, GLM, GLEW). You can find these in the "GUI-src/external" directory. If you are already useing these libarys you don't have to link to them again.
 
-3. Link to all .lib files of the external libarys mentioned (Freetype, GLFW, GLEW). For every libary there are two .lib files. (one win32 and one x64)
-   If you put the GUI folder in the recommended directory the linker setup should be as follows:
-   Visual Studio:
-   Additional Libary Directories:
-   win32:
-     $(ProjectDir)GUI\Dependencies\FREETYPE\lib\win32;$(ProjectDir)GUI\Dependencies\GLEW\lib\Release\Win32;$(ProjectDir)GUI\Dependencies\GLFW\lib-vc2019
-   x64:
-     $(ProjectDir)GUI\Dependencies\FREETYPE\lib\x64;$(ProjectDir)GUI\Dependencies\GLEW\lib\Release\x64;$(ProjectDir)GUI\Dependencies\GLFW\lib-vc2019-64
-   Additional Dependencies:
-     All Platforms:
-     freetype.lib;glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib
+3. Link to all .lib files of the external libarys mentioned (Freetype, GLFW, GLEW) and the GUI.lib file. For every libary there are two .lib files. (one win32 and one x64)
  
-4. Link to the .dll files of freetype. You can find these in the directory "GUI\Dependencies\dlls\". Visual studio gives you the option to link to dll files useing environment variables. If you have put the GUI folder in the recommended directory the Environment setup should be as follows:
-   win32:
-     PATH=%PATH%;$(ProjectDir)GUI\Dependencies\dlls\win32
-   x64:
-     PATH=%PATH%;$(ProjectDir)GUI\Dependencies\dlls\x64
- 
- 5. (optional) This step is only neaded if you want to execute youre program outside of your IDE. Copy the .dll files fo freetype to the corresponding outpute directory of your OpenGl Project. You can find these in the directory "GUI\Dependencies\dlls\". Visual studio gives you the option to automate this process by useing a post build event. If you have put the GUI folder in the recommended directory the Post-Build Event setup should be as follows:
-    win32:
-       xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\win32\*.*" "$(OutDir)"
-    x64:
-       xcopy /d /y "$(ProjectDir)GUI\Dependencies\dlls\x64\*.*" "$(OutDir)"
+4. Link to the .dll files of freetype. You can find these in the directory "GUI-src/external/FREETYPE/dlls/".
 
 IMPLEMENTATION
 
